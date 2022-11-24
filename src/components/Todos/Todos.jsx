@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { TodoContext } from "../../App";
 import { Task } from "../Task/Task";
 
-export const Todos = ({ onDelete, onDone }) => {
+export const Todos = ({ onDelete, onDone, onArchive }) => {
   const todos = useContext(TodoContext);
 
   return (
@@ -14,6 +14,7 @@ export const Todos = ({ onDelete, onDone }) => {
           index={index}
           onDelete={onDelete}
           onDone={onDone}
+          onArchive={onArchive}
         />
       ))}
     </div>
