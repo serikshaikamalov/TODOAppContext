@@ -2,7 +2,7 @@ import React from "react";
 import { statuses } from "../../App";
 import "./task.css";
 
-export const Task = ({ task, index, onDone, onDelete, onArchive }) => {
+export const Task = ({ task, index, dispatch }) => {
   return (
     <div className="task">
       <div
@@ -20,9 +20,18 @@ export const Task = ({ task, index, onDone, onDelete, onArchive }) => {
         <p>{task.text}</p>
       </div>
       <div className="right">
-        <button onClick={() => onDone(index)}>Done</button>
-        <button onClick={() => onArchive(index)}>Archive</button>
-        <button onClick={() => onDelete(index)}>Delete</button>
+        {/* <button onClick={() => onDone(index)}>Done</button>
+        <button onClick={() => onArchive(index)}>Archive</button> */}
+        <button
+          onClick={() =>
+            dispatch({
+              type: "delete",
+              index,
+            })
+          }
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

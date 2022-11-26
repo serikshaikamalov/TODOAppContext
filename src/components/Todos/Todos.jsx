@@ -1,21 +1,11 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../../App";
+import React from "react";
 import { Task } from "../Task/Task";
 
-export const Todos = ({ onDelete, onDone, onArchive }) => {
-  const todos = useContext(TodoContext);
-
+export const Todos = ({ tasks, dispatch }) => {
   return (
     <div>
-      {todos.map((t, index) => (
-        <Task
-          key={index}
-          task={t}
-          index={index}
-          onDelete={onDelete}
-          onDone={onDone}
-          onArchive={onArchive}
-        />
+      {tasks.map((t, index) => (
+        <Task key={index} task={t} index={index} dispatch={dispatch} />
       ))}
     </div>
   );
